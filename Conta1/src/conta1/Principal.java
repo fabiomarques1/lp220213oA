@@ -10,19 +10,7 @@ public class Principal {
         Double quantia;
         
         //Realizar Cadastro
-        Conta minhaconta = new Conta();
-        teclado = JOptionPane.showInputDialog("Informe o código do banco:");
-        minhaconta.codigoBanco = Integer.parseInt(teclado);
-        teclado = JOptionPane.showInputDialog("Informe o nome do banco:");
-        minhaconta.nomeBanco = teclado;
-        teclado = JOptionPane.showInputDialog("Informe o número da agência:");
-        minhaconta.numeroAgencia = Integer.parseInt(teclado);
-        teclado = JOptionPane.showInputDialog("Informe o número da conta:");
-        minhaconta.numeroConta = Integer.parseInt(teclado);
-        teclado = JOptionPane.showInputDialog("Informe o cpf do titular:");
-        minhaconta.cpf = Long.parseLong(teclado);
-        teclado = JOptionPane.showInputDialog("Informe o nome do titular:");
-        minhaconta.titular = teclado;
+        Conta minhaconta = realizarCadastro();
         
         //Realizar Depósito
         teclado = JOptionPane.showInputDialog("Informe o valor do depósito:");
@@ -30,6 +18,26 @@ public class Principal {
         minhaconta.depositar(quantia);
         
         System.out.println("Minha Conta: " + minhaconta);
+}
+    
+public static Conta realizarCadastro() { 
+    //Realizar Cadastro
+    String teclado;
+    Conta conta = new Conta();
+    teclado = JOptionPane.showInputDialog("Informe o código do banco:");
+    conta.setCodigoBanco(Integer.parseInt(teclado));
+    teclado = JOptionPane.showInputDialog("Informe o nome do banco:");
+    conta.setNomeBanco(teclado);
+    teclado = JOptionPane.showInputDialog("Informe o número da agência:");
+    conta.setNumeroAgencia(Integer.parseInt(teclado));
+    teclado = JOptionPane.showInputDialog("Informe o número da conta:");
+    conta.setNumeroConta(Integer.parseInt(teclado));
+    teclado = JOptionPane.showInputDialog("Informe o cpf do titular:");
+    conta.setCpf(Long.parseLong(teclado));
+    teclado = JOptionPane.showInputDialog("Informe o nome do titular:");
+    conta.setTitular(teclado);
+
+    return conta;
 }
     
 }
